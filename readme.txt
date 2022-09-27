@@ -1,3 +1,7 @@
+original github url:   https://github.com/merlox/solana-world-article
+tutorial url:          https://merunasgrincalaitis.medium.com/the-ultimate-solana-step-by-step-guide-including-programs-dapps-and-rust-from-scratch-d3bfb02b5f2e
+
+
 anchor init
 
 anchor build
