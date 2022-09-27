@@ -1,12 +1,13 @@
 use anchor_lang::prelude::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("9SdvGeQLLYxBSfNsUi4ayVfx1rncukGoKzweD3EUpvKM");
 
 #[program]
 pub mod solana_global_article {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+
         // get the article
         let article_account = &mut ctx.accounts.article;
         // initialize the variable (required)
@@ -48,29 +49,28 @@ pub struct Article {
 }
 
 
-#[derive(Accounts)] /////// implementation of accounts.
-pub struct Initialize<'info> {
+#[derive(Accounts)] /////// implementation of accounts deserializer which means that it allows this struct to process user addresses and accounts.
+pub struct Initialize<'info> {  // this part is called when [#program] part is called.
     # [account (
         init,
         payer = person_that_pays,
         space = 8 +32 + 1000
     )]
 
-    pub article: Account<'info, Article>,
+    pub article: Account<'info, Article>,  // article is new data account
 
     #[account (mut)]
     pub person_that_pays: Signer<'info>,
     pub system_program: Program<'info, System>,
 }
 
-
+// The first step when creating a function that updates blockchain data,
+// is to create a struct with the variables you want to have updated like so:
 #[derive(Accounts)]
 pub struct WriteIntoArticle<'info> {
-    #[account(mut)]
+    #[account(mut)] //update data.
     pub article: Account<'info, Article>
 }
-
-
 
 #[error_code]
 pub enum Errors {

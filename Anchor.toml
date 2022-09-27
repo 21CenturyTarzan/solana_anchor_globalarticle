@@ -2,11 +2,11 @@
 seeds = false
 
 [programs.localnet]
-solana_global_article = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+solana_global_article = "9SdvGeQLLYxBSfNsUi4ayVfx1rncukGoKzweD3EUpvKM"
 
 
 [programs.devnet]
-solana_global_article = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+solana_global_article = "9SdvGeQLLYxBSfNsUi4ayVfx1rncukGoKzweD3EUpvKM"
 
 [registry]
 url = "https://anchor.projectserum.com"

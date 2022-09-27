@@ -51,4 +51,34 @@ describe("solana-global-article", () => {
 
   })
 
+  it("should write 3 articles", async() => {
+    const deployerKeypair = anchor.web3.Keypair.generate()
+    const personThatPays = provider.wallet
+
+    await program.rpc.initialize({
+      accounts: {
+        article: deployerKeypair.publicKey,
+        personThatPays: personThatPays.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId,
+      }, 
+      signers: [deployerKeypair],
+    })
+
+    await program.rpc.writeIntoArticle('hey whats up', {
+      accounts:{
+        article: deployerKeypair.publicKey
+      },
+      signers: [],
+    })
+
+    await program.rpc.writeIntoArticle('this is my', {
+      accounts:{
+        article: deployerKeypair.publicKey
+      },
+      signers: [],
+    })
+
+    const articleData = await program.account.article.fetch(deployerKeypair.publicKey)
+    expect(articleData.content).to.equal('hey whats up this is my ')
+  }) 
 });
