@@ -23,3 +23,11 @@ anchor test
 
 in order to get the program id 
   solana address -k target/deploy/solana_global_article-keypair.json
+
+
+
+other tutorial url:
+
+https://hackmd.io/@ironaddicteddog/anchor_example_escrow
+https://imfeld.dev/writing/starting_with_solana_part03
+https://dev.to/edge-and-node/the-complete-guide-to-full-stack-solana-development-with-react-anchor-rust-and-phantom-3291
